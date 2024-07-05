@@ -1,0 +1,24 @@
+<button mat-raised-button color="primary"
+(click)="onNavigateCreateAvion()"
+>Nuevo Avion</button>
+<table mat-table [dataSource]="aviones" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="idavion">
+      <th mat-header-cell *matHeaderCellDef> Id Avion </th>
+      <td mat-cell *matCellDef="let element"> {{element.idavion}} </td>
+    </ng-container>
+ 
+    <ng-container matColumnDef="modelo">
+      <th mat-header-cell *matHeaderCellDef> Modelo </th>
+      <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="capacidadpasajeros">
+        <th mat-header-cell *matHeaderCellDef> Capacidad de Pasajeros </th>
+        <td mat-cell *matCellDef="let element"> {{element.capacidadpasajeros}} </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+    (click)="onNavigateAvionDetail(row.idavion)"></tr>
+  </table>  
