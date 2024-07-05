@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Jurisdiccion } from './jurisdicion.model';
 import { Observable } from 'rxjs';
+import { JurisdiccionDto } from './jurisdicionDto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,12 @@ export class JurisdiccionService {
   getJurisdiccionById(id: number): Observable<Jurisdiccion>{
     return this.httpClient.get<Jurisdiccion>("http://localhost:8080/api/v1/jurisdicciones/"+id)
   }
-  createJurisdiccion(jurisdiccion: Jurisdiccion): Observable<Jurisdiccion>{
-    return this.httpClient.post<Jurisdiccion>("http://localhost:8080/api/v1/jurisdicciones",jurisdiccion);
+
+  createJurisdiccion(jurisdiccionDto: JurisdiccionDto): Observable<Jurisdiccion> {
+    return this.httpClient.post<Jurisdiccion>("http://localhost:8080/api/v1/jurisdicciones", jurisdiccionDto);
   }
-  updateJurisdiccion(jurisdiccion : Jurisdiccion):Observable<Jurisdiccion>{
-    return this.httpClient.put<Jurisdiccion>("http://localhost:8080/api/v1/jurisdicciones/"+jurisdiccion.idjurisdiccion,jurisdiccion);
+  
+  updateJurisdiccion(jurisdiccionDto: JurisdiccionDto): Observable<Jurisdiccion> {
+    return this.httpClient.put<Jurisdiccion>(`http://localhost:8080/api/v1/jurisdicciones/${jurisdiccionDto.idjurisdiccion}`, jurisdiccionDto);
   }
 }
