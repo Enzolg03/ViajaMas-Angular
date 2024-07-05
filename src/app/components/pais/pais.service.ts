@@ -13,13 +13,13 @@ export class PaisService {
   getAllPaises(): Observable<Pais[]>{
     return this.httpClient.get<Pais[]>("http://localhost:8080/api/v1/paises");
   }
-  getPaisById(id: number): Observable<Pais>{
-    return this.httpClient.get<Pais>("http://localhost:8080/api/v1/paises/"+id)
+  getPaisById(idpais: number): Observable<Pais>{
+    return this.httpClient.get<Pais>("http://localhost:8080/api/v1/paises/"+idpais)
   }
   createPais(pais: Pais): Observable<Pais>{
     return this.httpClient.post<Pais>("http://localhost:8080/api/v1/paises",pais);
   }
-  updatePost(pais : Pais):Observable<Pais>{
+  updatePais(pais : Pais):Observable<Pais>{
     return this.httpClient.put<Pais>("http://localhost:8080/api/v1/paises/"+pais.idpais,pais);
   }
 }

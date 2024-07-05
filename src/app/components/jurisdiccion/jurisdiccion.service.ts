@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Jurisdiccion } from './jurisdicion.model';
 import { Observable } from 'rxjs';
-import { PaisService } from '../pais/pais.service';
-import { Pais } from '../pais/pais.model';
 
 @Injectable({
   providedIn: 'root'
