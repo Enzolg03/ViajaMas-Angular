@@ -1,0 +1,79 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { JurisdiccionService } from '../jurisdiccion.service';
+import { MaterialModule } from '../../../../angular-material/material/material.module';
+import { JurisdiccionDto } from '../jurisdicionDto.model';
+
+enum FormType {
+  Crear = 0,
+  Actualizar = 1
+}
+
+@Component({
+  selector: 'app-jurisdiccion-detalle',
+  standalone: true,
+  imports: [FormsModule, ReactiveFormsModule, MaterialModule],
+  templateUrl: './jurisdiccion-detalle.component.html',
+  styleUrls: ['./jurisdiccion-detalle.component.css']
+})
+export class JurisdiccionDetalleComponent implements OnInit {
+  jurisdiccionId: string | null = '';
+  jurisdiccionForm!: FormGroup;
+  formType!: FormType;
+  formTitulo!: string;
+
+  constructor(private route: ActivatedRoute, private jurisdiccionService: JurisdiccionService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.jurisdiccionId = this.route.snapshot.paramMap.get('id');
+    this.jurisdiccionForm = this.formulario();
+    if (this.jurisdiccionId !== 'nuevo') {
+      this.formTitulo = 'Editar Jurisdiccion';
+      this.formType = FormType.Actualizar;
+      this.cargarJurisdiccion(Number(this.jurisdiccionId));
+    } else {
+      this.formTitulo = 'Nueva Jurisdiccion';
+      this.formType = FormType.Crear;
+    }
+  }
+
+  formulario(): FormGroup {
+    return new FormGroup({
+      idjurisdiccion: new FormControl(''),
+      descripcion: new FormControl(''),
+      idpais: new FormControl('')  
+    });
+  }
+
+  cargarJurisdiccion(jurisdiccionid: number): void {
+    this.jurisdiccionService.getJurisdiccionById(jurisdiccionid).subscribe((data) => {
+      const { idjurisdiccion, descripcion, pais } = data;
+      this.jurisdiccionForm.setValue({ idjurisdiccion, descripcion, idpais: pais.idpais });
+    });
+  }
+
+  guardarJurisdiccion(): void {
+    const jurisdiccionDto: JurisdiccionDto = this.jurisdiccionForm.value;
+    if (this.formType === FormType.Crear) {
+      this.registrarJurisdiccion(jurisdiccionDto);
+    } else {
+      jurisdiccionDto.idjurisdiccion = Number(this.jurisdiccionId);
+      this.actualizarJurisdiccion(jurisdiccionDto);
+    }
+  }
+
+  registrarJurisdiccion(jurisdiccionDto: JurisdiccionDto): void {
+    this.jurisdiccionService.createJurisdiccion(jurisdiccionDto).subscribe((data) => {
+      console.log(data);
+      this.router.navigate(['dashboard/jurisdicciones']);
+    });
+  }
+
+  actualizarJurisdiccion(jurisdiccionDto: JurisdiccionDto): void {
+    this.jurisdiccionService.updateJurisdiccion(jurisdiccionDto).subscribe((data) => {
+      console.log(data);
+      this.router.navigate(['dashboard/jurisdicciones']);
+    });
+  }
+}

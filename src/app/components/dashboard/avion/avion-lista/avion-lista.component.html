@@ -1,0 +1,33 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-card-title>
+      <h2>Gestión de Aviones</h2>
+    </mat-card-title>
+    <mat-card-content>
+      <button mat-raised-button class="custom-button" (click)="onNavigateCreateAvion()">
+        <mat-icon>add</mat-icon> Nuevo Avión
+      </button>
+      <table mat-table [dataSource]="aviones" class="mat-elevation-z8 custom-table">
+        <ng-container matColumnDef="idavion">
+          <th mat-header-cell *matHeaderCellDef> Id Avión </th>
+          <td mat-cell *matCellDef="let element"> {{element.idavion}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="modelo">
+          <th mat-header-cell *matHeaderCellDef> Modelo </th>
+          <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="capacidadpasajeros">
+          <th mat-header-cell *matHeaderCellDef> Capacidad de Pasajeros </th>
+          <td mat-cell *matCellDef="let element"> {{element.capacidadpasajeros}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            class="custom-row"
+            (click)="onNavigateAvionDetail(row.idavion)"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

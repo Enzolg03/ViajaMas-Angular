@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>{{ vueloId }}</h1>
+    <div class="module-header">
+        <div class="left">
+            <h3>{{ formTitulo }}</h3>
+        </div>
+        <div class="right">
+            <button mat-raised-button class="custom-button" (click)="guardarVuelo()">Guardar</button>
+        </div>
+    </div>
+    <hr />
+    <div class="form-container">
+        <form class="form" [formGroup]="vueloForm">
+            <input type="hidden" name="idvuelo" formControlName="idvuelo">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Número de Vuelo</mat-label>
+                <input matInput name="numerovuelo" formControlName="numerovuelo" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Aerolínea</mat-label>
+                <input matInput name="aerolinea" formControlName="aerolinea" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Avión</mat-label>
+                <input matInput name="avion" formControlName="avion" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Origen</mat-label>
+                <input matInput name="aeropuerto_origen" formControlName="aeropuerto_origen" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Destino</mat-label>
+                <input matInput name="aeropuerto_destino" formControlName="aeropuerto_destino" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Fecha de salida</mat-label>
+                <input matInput name="fechasalida" formControlName="fechasalida" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Fecha de llegada</mat-label>
+                <input matInput name="fechallegada" formControlName="fechallegada" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Duración</mat-label>
+                <input matInput name="duracion" formControlName="duracion" />
+            </mat-form-field>
+        </form>
+    </div>
+</div>

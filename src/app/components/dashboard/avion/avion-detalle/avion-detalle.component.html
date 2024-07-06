@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>{{avionId}}</h1>
+    <div class="module-header">
+      <div class="left">
+        <h3>{{ formTitulo }}</h3>
+      </div>
+      <div class="right">
+        <button mat-raised-button class="custom-button" (click)="guardarAvion()">Guardar</button>
+      </div>
+    </div>
+    <hr />
+    <div class="form-container">
+      <form class="form" [formGroup]="avionForm">
+        <input type="hidden" name="idavion" formControlName="idavion">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Modelo</mat-label>
+          <input matInput name="modelo" formControlName="modelo">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Capacidad de Pasajeros</mat-label>
+          <input matInput name="capacidadpasajeros" formControlName="capacidadpasajeros">
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
