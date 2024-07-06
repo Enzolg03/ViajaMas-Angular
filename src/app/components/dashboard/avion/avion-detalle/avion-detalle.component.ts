@@ -68,7 +68,6 @@ export class AvionDetalleComponent {
     this.avionService.createAvion(avion)
     .subscribe(
       (data) => {
-        console.log(data)
         this.router.navigate(["dashboard/aviones"])
       }
     )
@@ -77,7 +76,6 @@ export class AvionDetalleComponent {
     this.avionService.updateAvion(avion)
     .subscribe(
       (data) => {
-        console.log(data)
         this.router.navigate(["dashboard/aviones"])
       }
     )

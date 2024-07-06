@@ -25,7 +25,6 @@ export class VueloListaComponent {
   ngOnInit(): void {
     this.vueloService.getAllVuelos()
     .subscribe((data)=>{
-      console.log(data);
       this.vuelos = data;
     })
     

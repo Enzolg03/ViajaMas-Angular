@@ -67,7 +67,6 @@ export class PaisDetalleComponent {
     this.paisService.createPais(pais)
     .subscribe(
       (data) => {
-        console.log(data)
         this.router.navigate(["dashboard/paises"])
       }
     )
@@ -76,7 +75,6 @@ export class PaisDetalleComponent {
     this.paisService.updatePais(pais)
     .subscribe(
       (data) => {
-        console.log(data)
         this.router.navigate(["dashboard/paises"])
       }
     )

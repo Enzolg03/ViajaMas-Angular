@@ -25,7 +25,6 @@ export class JurisdiccionListaComponent {
   ngOnInit(): void {
     this.jurisdiccionService.getAllJurisdicciones()
     .subscribe((data)=>{
-      console.log(data);
       this.jurisdicciones = data;
     })
     

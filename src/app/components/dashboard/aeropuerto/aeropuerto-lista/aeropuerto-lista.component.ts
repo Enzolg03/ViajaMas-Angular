@@ -25,7 +25,6 @@ export class AeropuertoListaComponent {
   ngOnInit(): void {
     this.aeropuertoService.getAllAeropuertos()
     .subscribe((data)=>{
-      console.log(data);
       this.aeropuertos = data;
     })
     

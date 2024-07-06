@@ -23,7 +23,6 @@ export class PaisListaComponent {
   ngOnInit(): void {
     this.paisService.getAllPaises()
     .subscribe((data)=>{
-      console.log(data);
       this.paises = data;
     })
   }

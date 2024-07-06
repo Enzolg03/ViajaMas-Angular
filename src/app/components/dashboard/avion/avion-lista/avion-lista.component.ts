@@ -23,7 +23,6 @@ export class AvionListaComponent {
   ngOnInit(): void {
     this.avionService.getAllAviones()
     .subscribe((data)=>{
-      console.log(data);
       this.aviones = data;
     })
   }

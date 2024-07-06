@@ -72,15 +72,13 @@ export class VueloDetalleComponent implements OnInit {
 
   registrarVuelo(vueloDto: VueloDto): void {
     this.vueloService.createVuelo(vueloDto).subscribe((data) => {
-      console.log(data);
-      this.router.navigate(['vuelos']);
+      this.router.navigate(['dashboard/vuelos']);
     });
   }
 
   actualizarVuelo(vueloDto: VueloDto): void {
     this.vueloService.updateVuelo(vueloDto).subscribe((data) => {
-      console.log(data);
-      this.router.navigate(['vuelos']);
+      this.router.navigate(['dashboard/vuelos']);
     });
   }
 }

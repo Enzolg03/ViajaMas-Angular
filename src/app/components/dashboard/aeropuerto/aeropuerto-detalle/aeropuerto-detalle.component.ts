@@ -67,14 +67,12 @@ export class AeropuertoDetalleComponent implements OnInit {
 
   registrarAeropuerto(aeropuertoDto: AeropuertoDto): void {
     this.aeropuertoService.createAeropuerto(aeropuertoDto).subscribe((data) => {
-      console.log(data);
       this.router.navigate(['dashboard/aeropuertos']);
     });
   }
 
   actualizarAeropuerto(aeropuertoDto: AeropuertoDto): void {
     this.aeropuertoService.updateAeropuerto(aeropuertoDto).subscribe((data) => {
-      console.log(data);
       this.router.navigate(['dashboard/aeropuertos']);
     });
   }

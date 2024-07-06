@@ -18,7 +18,6 @@ export class LoginComponent {
     this.authService.login(usuario.value, password.value).subscribe(
       response => {
         const token = response.token;
-        console.log('Token:', token);
         this.authService.guardarToken(token);
         this.router.navigateByUrl('/dashboard');
       },

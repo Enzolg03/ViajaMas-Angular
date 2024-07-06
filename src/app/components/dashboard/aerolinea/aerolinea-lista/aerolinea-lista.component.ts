@@ -25,7 +25,6 @@ export class AerolineaListaComponent {
   ngOnInit(): void {
     this.aerolineaService.getAllAerolineas()
     .subscribe((data)=>{
-      console.log(data);
       this.aerolineas = data;
     })
     

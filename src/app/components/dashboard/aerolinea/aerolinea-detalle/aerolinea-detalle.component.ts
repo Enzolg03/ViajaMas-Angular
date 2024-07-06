@@ -68,14 +68,12 @@ export class AerolineaDetalleComponent implements OnInit{
 
   registrarAerolinea(aerolineaDto: AerolineaDto): void {
     this.aerolineaService.createAerolinea(aerolineaDto).subscribe((data) => {
-      console.log(data);
       this.router.navigate(['dashboard/aerolineas']);
     });
   }
 
   actualizarAerolinea(aerolineaDto: AerolineaDto): void {
     this.aerolineaService.updateAerolinea(aerolineaDto).subscribe((data) => {
-      console.log(data);
       this.router.navigate(['dashboard/aerolineas']);
     });
   }

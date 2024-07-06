@@ -25,7 +25,6 @@ export class CiudadListaComponent {
   ngOnInit(): void {
     this.ciudadService.getAllCiudades()
     .subscribe((data)=>{
-      console.log(data);
       this.ciudades = data;
     })
     
