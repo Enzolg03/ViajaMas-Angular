@@ -1,1 +1,24 @@
-<p>ciudad-detalle works!</p>
+<h1>{{ciudadId}}</h1>
+<div class="module-header">
+    <div class="left">
+        <h3>{{formTitulo}}</h3>
+    </div>
+    <div class="right">
+        <button mat-raised-button color="primary"
+         (click)="guardarCiudad()">Guardar</button>
+    </div>
+</div>
+<hr />
+<div class="form-container">
+    <form class="form" [formGroup]="ciudadForm">
+        <input type="hidden" name="idciudad" formControlName="idciudad">
+        <mat-form-field appearance="outline">
+            <mat-label>Descripcion</mat-label>
+            <input matInput name="descripcion" formControlName="descripcion" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Pais</mat-label>
+            <input matInput name="idjurisdiccion" formControlName="idjurisdiccion" />
+        </mat-form-field>
+    </form>
+</div>
