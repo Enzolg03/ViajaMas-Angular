@@ -16,9 +16,13 @@
                 <mat-label>Descripción</mat-label>
                 <input matInput name="descripcion" formControlName="descripcion" />
             </mat-form-field>
-            <mat-form-field appearance="outline" class="full-width">
+            <mat-form-field>
                 <mat-label>País</mat-label>
-                <input matInput name="idpais" formControlName="idpais" />
+                <mat-select formControlName="idpais">
+                @for (pais of paises; track pais) {
+                <mat-option [value]="pais.idpais" >{{pais.descripcion}}</mat-option>
+                }
+                </mat-select>
             </mat-form-field>
         </form>
     </div>

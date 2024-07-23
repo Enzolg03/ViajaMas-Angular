@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AerolineaService } from '../aerolinea.service';
 import { AerolineaDto } from '../aerolineaDto.model';
 import { MaterialModule } from '../../../../angular-material/material/material.module';
+import { Pais } from '../../pais/pais.model';
+import { PaisService } from '../../pais/pais.service';
 
 enum FormType {
   Crear = 0,
@@ -19,13 +21,15 @@ enum FormType {
   styleUrl: './aerolinea-detalle.component.css'
 })
 export class AerolineaDetalleComponent implements OnInit{
+  paises: Pais[] = [];
   aerolineaId: string | null = '';
   aerolineaForm!: FormGroup;
   formType!: FormType;
   formTitulo!: string;
 
   constructor(private route: ActivatedRoute, 
-    private aerolineaService: AerolineaService, 
+    private aerolineaService: AerolineaService,
+    private paisService : PaisService,
     private router: Router) {}
 
   ngOnInit(): void {
@@ -39,6 +43,10 @@ export class AerolineaDetalleComponent implements OnInit{
       this.formTitulo = 'Nueva Aerolinea';
       this.formType = FormType.Crear;
     }
+    this.paisService.getAllPaises()
+    .subscribe((data)=>{
+      this.paises = data;
+    })
   }
 
   formulario(): FormGroup {

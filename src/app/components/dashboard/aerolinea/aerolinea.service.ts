@@ -14,9 +14,9 @@ export class AerolineaService {
 
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
-  getAllAerolineas(): Observable<Aerolinea[]>{
+  getAllAerolineas(): Observable<AerolineaDto[]>{
     const headers = this.authService.cabeceraMensaje();
-    return this.httpClient.get<Aerolinea[]>(this.apiUrl, { headers });
+    return this.httpClient.get<AerolineaDto[]>(this.apiUrl, { headers });
   }
   getAerolineaById(id: number): Observable<Aerolinea>{
     const headers = this.authService.cabeceraMensaje();

@@ -3,6 +3,7 @@ import { MaterialModule } from '../../../../angular-material/material/material.m
 import { Aerolinea } from '../aerolinea.model';
 import { AerolineaService } from '../aerolinea.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AerolineaDto } from '../aerolineaDto.model';
 
 @Component({
   selector: 'app-aerolinea-lista',
@@ -12,8 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './aerolinea-lista.component.css'
 })
 export class AerolineaListaComponent {
-  displayedColumns: string[] = ['idaerolinea', 'nombre','pais'];
-  aerolineas: Aerolinea[] = [];
+  displayedColumns: string[] = ['idaerolinea', 'nombre','descripcion'];
+  aerolineas: AerolineaDto[] = [];
 
   constructor(private aerolineaService: AerolineaService,
     private route: ActivatedRoute,

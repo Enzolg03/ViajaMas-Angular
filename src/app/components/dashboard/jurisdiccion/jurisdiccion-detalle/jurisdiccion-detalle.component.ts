@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { JurisdiccionService } from '../jurisdiccion.service';
 import { MaterialModule } from '../../../../angular-material/material/material.module';
 import { JurisdiccionDto } from '../jurisdicionDto.model';
+import { PaisService } from '../../pais/pais.service';
+import { Pais } from '../../pais/pais.model';
 
 enum FormType {
   Crear = 0,
@@ -18,12 +20,16 @@ enum FormType {
   styleUrls: ['./jurisdiccion-detalle.component.css']
 })
 export class JurisdiccionDetalleComponent implements OnInit {
+
+  paises: Pais[] = [];
   jurisdiccionId: string | null = '';
   jurisdiccionForm!: FormGroup;
   formType!: FormType;
   formTitulo!: string;
 
-  constructor(private route: ActivatedRoute, private jurisdiccionService: JurisdiccionService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private jurisdiccionService: JurisdiccionService, private router: Router,
+    private paisService : PaisService
+  ) {}
 
   ngOnInit(): void {
     this.jurisdiccionId = this.route.snapshot.paramMap.get('id');
@@ -36,13 +42,17 @@ export class JurisdiccionDetalleComponent implements OnInit {
       this.formTitulo = 'Nueva Jurisdiccion';
       this.formType = FormType.Crear;
     }
+    this.paisService.getAllPaises()
+    .subscribe((data)=>{
+      this.paises = data;
+    })
   }
 
   formulario(): FormGroup {
     return new FormGroup({
       idjurisdiccion: new FormControl(''),
       descripcion: new FormControl(''),
-      idpais: new FormControl('')  
+      idpais: new FormControl('')
     });
   }
 
