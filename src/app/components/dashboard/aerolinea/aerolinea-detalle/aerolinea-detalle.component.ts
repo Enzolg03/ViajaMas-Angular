@@ -52,15 +52,15 @@ export class AerolineaDetalleComponent implements OnInit{
   formulario(): FormGroup {
     return new FormGroup({
       idaerolinea: new FormControl(''),
-      nombre: new FormControl(''),
+      nomaerolinea: new FormControl(''),
       idpais: new FormControl('')  
     });
   }
 
   cargarAerolinea(aerolineaid: number): void {
     this.aerolineaService.getAerolineaById(aerolineaid).subscribe((data) => {
-      const { idaerolinea, nombre, pais } = data;
-      this.aerolineaForm.setValue({ idaerolinea, nombre, idpais: pais.idpais });
+      const { idaerolinea, nomaerolinea, pais } = data;
+      this.aerolineaForm.setValue({ idaerolinea, nomaerolinea, idpais: pais.idpais });
     });
   }
 

@@ -13,7 +13,7 @@ import { AerolineaDto } from '../aerolineaDto.model';
   styleUrl: './aerolinea-lista.component.css'
 })
 export class AerolineaListaComponent {
-  displayedColumns: string[] = ['idaerolinea', 'nombre','descripcion'];
+  displayedColumns: string[] = ['idaerolinea', 'nomaerolinea','nompais'];
   aerolineas: AerolineaDto[] = [];
 
   constructor(private aerolineaService: AerolineaService,

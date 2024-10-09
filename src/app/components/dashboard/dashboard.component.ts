@@ -43,4 +43,7 @@ export class DashboardComponent {
   irVuelo():void{
     this.router.navigate(["vuelos"], {relativeTo: this.route})
   }
+  irUsuario():void{
+    this.router.navigate(["usuarios"], {relativeTo: this.route})
+  }
 }

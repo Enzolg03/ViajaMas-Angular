@@ -14,9 +14,9 @@ export class CiudadService {
 
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
-  getAllCiudades(): Observable<Ciudad[]>{
+  getAllCiudades(): Observable<CiudadDto[]>{
     const headers = this.authService.cabeceraMensaje();
-    return this.httpClient.get<Ciudad[]>(this.apiUrl, { headers });
+    return this.httpClient.get<CiudadDto[]>(this.apiUrl, { headers });
   }
   getCiudadById(id: number): Observable<Ciudad>{
     const headers = this.authService.cabeceraMensaje();

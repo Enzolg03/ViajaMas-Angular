@@ -1,6 +1,7 @@
 
 export interface CiudadDto {
     idciudad: number;
-    descripcion: string;
+    nomciudad: string;
     idjurisdiccion: number;
+    nomjurisdiccion: string;
   }

@@ -1,8 +1,11 @@
 
 export interface AeropuertoDto {
     idaeropuerto: number;
-    nombre: string;
+    nomaeropuerto: string;
     idciudad: number;
+    nomciudad: string;
     idjurisdiccion: number;
+    nomjurisdiccion: string;
     idpais: number;
+    nompais: string;
   }

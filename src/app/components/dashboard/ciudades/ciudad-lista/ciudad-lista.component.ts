@@ -3,6 +3,7 @@ import { MaterialModule } from '../../../../angular-material/material/material.m
 import { Ciudad } from '../ciudad.model';
 import { CiudadService } from '../ciudad.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CiudadDto } from '../ciudadDto.model';
 
 @Component({
   selector: 'app-ciudad-lista',
@@ -12,8 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './ciudad-lista.component.css'
 })
 export class CiudadListaComponent {
-  displayedColumns: string[] = ['idciudad', 'descripcion','jurisdiccion'];
-  ciudades: Ciudad[] = [];
+  displayedColumns: string[] = ['idciudad', 'nomciudad','nomjurisdiccion'];
+  ciudades: CiudadDto[] = [];
 
   constructor(private ciudadService: CiudadService,
     private route: ActivatedRoute,

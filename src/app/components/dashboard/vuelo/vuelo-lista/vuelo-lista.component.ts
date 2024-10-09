@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../../angular-material/material/material.module';
-import { Vuelo } from '../vuelo.model';
 import { VueloService } from '../vuelo.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { VueloDto } from '../vueloDto.model';
 
 @Component({
   selector: 'app-vuelo-lista',
@@ -12,8 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './vuelo-lista.component.css'
 })
 export class VueloListaComponent {
-  displayedColumns: string[] = ['idvuelo', 'numerovuelo', 'aerolinea', 'avion', 'aeropuerto_origen', 'aeropuerto_destino', 'fechasalida', 'fechallegada', 'duracion'];
-  vuelos: Vuelo[] = [];
+  displayedColumns: string[] = ['idvuelo', 'numerovuelo','nomaerolinea', 'modelo' ,'nomaeropuerto_origen', 'nomaeropuerto_destino', 'fechasalida', 'fechallegada', 'duracion'];
+  vuelos: VueloDto[] = [];
 
   constructor(private vueloService: VueloService,
     private route: ActivatedRoute,

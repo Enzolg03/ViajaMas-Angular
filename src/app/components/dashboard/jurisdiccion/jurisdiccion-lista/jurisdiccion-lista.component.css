@@ -30,7 +30,7 @@
   }
   
   .custom-row:nth-child(even) {
-    background-color: #e6e6e6;
+    background-color: #eeeeee;
   }
   
   .custom-row:nth-child(odd) {

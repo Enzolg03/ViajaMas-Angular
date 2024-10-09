@@ -3,6 +3,7 @@ import { MaterialModule } from '../../../../angular-material/material/material.m
 import { Jurisdiccion } from '../jurisdicion.model';
 import { JurisdiccionService } from '../jurisdiccion.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { JurisdiccionDto } from '../jurisdicionDto.model';
 
 @Component({
   selector: 'app-jurisdiccion-lista',
@@ -12,8 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './jurisdiccion-lista.component.css'
 })
 export class JurisdiccionListaComponent {
-  displayedColumns: string[] = ['idjurisdiccion', 'descripcion','pais'];
-  jurisdicciones: Jurisdiccion[] = [];
+  displayedColumns: string[] = ['idjurisdiccion', 'nomjurisdiccion','nompais'];
+  jurisdicciones: JurisdiccionDto[] = [];
 
   constructor(private jurisdiccionService: JurisdiccionService,
     private route: ActivatedRoute,

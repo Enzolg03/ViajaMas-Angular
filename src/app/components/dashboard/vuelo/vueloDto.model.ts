@@ -2,10 +2,14 @@
 export interface VueloDto{
     idvuelo : number;
     numerovuelo : string;
-    aerolinea : number;
-    avion : number;
-    aeropuerto_origen : number;
-    aeropuerto_destino : number;
+    idaerolinea : number;
+    nomaerolinea : string;
+    idavion : number;
+    modelo : string;
+    id_nomaeropuerto_origen : number;
+    nomaeropuerto_origen : string;
+    id_aeropuerto_destino : number;
+    nomaeropuerto_destino : string;
     fechasalida : string;
     fechallegada : string;
     duracion : number;

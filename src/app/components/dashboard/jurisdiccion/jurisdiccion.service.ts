@@ -14,9 +14,9 @@ export class JurisdiccionService {
 
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
-  getAllJurisdicciones(): Observable<Jurisdiccion[]>{
+  getAllJurisdicciones(): Observable<JurisdiccionDto[]>{
     const headers = this.authService.cabeceraMensaje();
-    return this.httpClient.get<Jurisdiccion[]>(this.apiUrl, { headers });
+    return this.httpClient.get<JurisdiccionDto[]>(this.apiUrl, { headers });
   }
   getJurisdiccionById(id: number): Observable<Jurisdiccion>{
     const headers = this.authService.cabeceraMensaje();

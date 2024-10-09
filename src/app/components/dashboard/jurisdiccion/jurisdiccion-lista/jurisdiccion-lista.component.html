@@ -13,14 +13,14 @@
           <td mat-cell *matCellDef="let element"> {{element.idjurisdiccion}} </td>
         </ng-container>
       
-        <ng-container matColumnDef="descripcion">
-          <th mat-header-cell *matHeaderCellDef> Descripción </th>
-          <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+        <ng-container matColumnDef="nomjurisdiccion">
+          <th mat-header-cell *matHeaderCellDef> Nombre Jurisdicción </th>
+          <td mat-cell *matCellDef="let element"> {{element.nomjurisdiccion}} </td>
         </ng-container>
       
-        <ng-container matColumnDef="pais">
+        <ng-container matColumnDef="nompais">
           <th mat-header-cell *matHeaderCellDef> País </th>
-          <td mat-cell *matCellDef="let element"> {{element.pais.descripcion}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.nompais}} </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

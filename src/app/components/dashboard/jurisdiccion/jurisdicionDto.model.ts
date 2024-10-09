@@ -1,6 +1,7 @@
 
 export interface JurisdiccionDto {
     idjurisdiccion: number;
-    descripcion: string;
+    nomjurisdiccion: string;
     idpais: number;
+    nompais: string;
   }

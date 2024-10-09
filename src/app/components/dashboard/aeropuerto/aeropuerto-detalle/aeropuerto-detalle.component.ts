@@ -4,6 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AeropuertoService } from '../aeropuerto.service';
 import { MaterialModule } from '../../../../angular-material/material/material.module';
 import { AeropuertoDto } from '../aeropuertoDto.model';
+import { JurisdiccionService } from '../../jurisdiccion/jurisdiccion.service';
+import { CiudadService } from '../../ciudades/ciudad.service';
+import { PaisService } from '../../pais/pais.service';
+import { Pais } from '../../pais/pais.model';
+import { JurisdiccionDto } from '../../jurisdiccion/jurisdicionDto.model';
+import { CiudadDto } from '../../ciudades/ciudadDto.model';
 
 enum FormType {
   Crear = 0,
@@ -18,12 +24,19 @@ enum FormType {
   styleUrls: ['./aeropuerto-detalle.component.css']
 })
 export class AeropuertoDetalleComponent implements OnInit {
+  paises : Pais [] = [];
+  jurisdicciones : JurisdiccionDto [] = [];
+  ciudades : CiudadDto [] = [];
   aeropuertoId: string | null = '';
   aeropuertoForm!: FormGroup;
   formType!: FormType;
   formTitulo!: string;
 
-  constructor(private route: ActivatedRoute, private aeropuertoService: AeropuertoService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private aeropuertoService: AeropuertoService, private router: Router,
+    private ciudadService: CiudadService,
+    private jurisdiccionService: JurisdiccionService,
+    private paisService: PaisService
+  ) {}
 
   ngOnInit(): void {
     this.aeropuertoId = this.route.snapshot.paramMap.get('id');
@@ -36,12 +49,27 @@ export class AeropuertoDetalleComponent implements OnInit {
       this.formTitulo = 'Nuevo Aeropuerto';
       this.formType = FormType.Crear;
     }
+
+    this.paisService.getAllPaises()
+    .subscribe((data)=>{
+      this.paises = data
+    })
+
+    this.jurisdiccionService.getAllJurisdicciones()
+    .subscribe((data)=>{
+      this.jurisdicciones = data
+    })
+
+    this.ciudadService.getAllCiudades()
+    .subscribe((data)=>{
+      this.ciudades = data
+    })
   }
 
   formulario(): FormGroup {
     return new FormGroup({
       idaeropuerto: new FormControl(''),
-      nombre: new FormControl(''),
+      nomaeropuerto: new FormControl(''),
       idciudad: new FormControl(''),  
       idjurisdiccion: new FormControl(''),  
       idpais: new FormControl('')  
@@ -50,8 +78,8 @@ export class AeropuertoDetalleComponent implements OnInit {
 
   cargarAeropuerto(aeropuertoId: number): void {
     this.aeropuertoService.getAeropuertoById(aeropuertoId).subscribe((data) => {
-      const { idaeropuerto, nombre, ciudad, jurisdiccion, pais } = data;
-      this.aeropuertoForm.setValue({ idaeropuerto, nombre, idciudad: ciudad.idciudad, idjurisdiccion: jurisdiccion.idjurisdiccion, idpais: pais.idpais });
+      const { idaeropuerto, nomaeropuerto, ciudad, jurisdiccion, pais } = data;
+      this.aeropuertoForm.setValue({ idaeropuerto, nomaeropuerto, idciudad: ciudad.idciudad, idjurisdiccion: jurisdiccion.idjurisdiccion, idpais: pais.idpais });
     });
   }
 

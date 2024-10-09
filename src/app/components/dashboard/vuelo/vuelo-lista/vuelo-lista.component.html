@@ -19,24 +19,24 @@
           <td mat-cell *matCellDef="let element"> {{ element.numerovuelo }} </td>
         </ng-container>
       
-        <ng-container matColumnDef="aerolinea">
+        <ng-container matColumnDef="nomaerolinea">
           <th mat-header-cell *matHeaderCellDef> Aerolínea </th>
-          <td mat-cell *matCellDef="let element"> {{ element.aerolinea.nombre }} </td>
+          <td mat-cell *matCellDef="let element"> {{ element.nomaerolinea }} </td>
         </ng-container>
       
-        <ng-container matColumnDef="avion">
+        <ng-container matColumnDef="modelo">
           <th mat-header-cell *matHeaderCellDef> Avión </th>
-          <td mat-cell *matCellDef="let element"> {{ element.avion.modelo }} </td>
+          <td mat-cell *matCellDef="let element"> {{ element.modelo }} </td>
         </ng-container>
       
-        <ng-container matColumnDef="aeropuerto_origen">
+        <ng-container matColumnDef="nomaeropuerto_origen">
           <th mat-header-cell *matHeaderCellDef> Aeropuerto de Origen </th>
-          <td mat-cell *matCellDef="let element"> {{ element.aeropuerto_origen.nombre }} </td>
+          <td mat-cell *matCellDef="let element"> {{ element.nomaeropuerto_origen}} </td>
         </ng-container>
       
-        <ng-container matColumnDef="aeropuerto_destino">
+        <ng-container matColumnDef="nomaeropuerto_destino">
           <th mat-header-cell *matHeaderCellDef> Aeropuerto de Destino </th>
-          <td mat-cell *matCellDef="let element"> {{ element.aeropuerto_destino.nombre }} </td>
+          <td mat-cell *matCellDef="let element"> {{ element.nomaeropuerto_destino }} </td>
         </ng-container>
       
         <ng-container matColumnDef="fechasalida">

@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CiudadService } from '../ciudad.service';
 import { MaterialModule } from '../../../../angular-material/material/material.module';
 import { CiudadDto } from '../ciudadDto.model';
+import { Jurisdiccion } from '../../jurisdiccion/jurisdicion.model';
+import { JurisdiccionService } from '../../jurisdiccion/jurisdiccion.service';
+import { JurisdiccionDto } from '../../jurisdiccion/jurisdicionDto.model';
 
 
 enum FormType {
@@ -19,12 +22,15 @@ enum FormType {
   styleUrls: ['./ciudad-detalle.component.css']
 })
 export class CiudadDetalleComponent implements OnInit {
+  jurisdicciones: JurisdiccionDto[] = [];
   ciudadId: string | null = '';
   ciudadForm!: FormGroup;
   formType!: FormType;
   formTitulo!: string;
 
-  constructor(private route: ActivatedRoute, private ciudadService: CiudadService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private ciudadService: CiudadService, private router: Router,
+    private jurisdiccionService : JurisdiccionService
+  ) {}
 
   ngOnInit(): void {
     this.ciudadId = this.route.snapshot.paramMap.get('id');
@@ -37,20 +43,24 @@ export class CiudadDetalleComponent implements OnInit {
       this.formTitulo = 'Nueva Ciudad';
       this.formType = FormType.Crear;
     }
+    this.jurisdiccionService.getAllJurisdicciones()
+    .subscribe((data)=>{
+      this.jurisdicciones = data;
+    })
   }
 
   formulario(): FormGroup {
     return new FormGroup({
       idciudad: new FormControl(''),
-      descripcion: new FormControl(''),
+      nomciudad: new FormControl(''),
       idjurisdiccion: new FormControl('')  
     });
   }
 
   cargarCiudad(ciudadId: number): void {
     this.ciudadService.getCiudadById(ciudadId).subscribe((data) => {
-      const { idciudad, descripcion, jurisdiccion } = data;
-      this.ciudadForm.setValue({ idciudad, descripcion, idjurisdiccion: jurisdiccion.idjurisdiccion });
+      const { idciudad, nomciudad, jurisdiccion } = data;
+      this.ciudadForm.setValue({ idciudad, nomciudad, idjurisdiccion: jurisdiccion.idjurisdiccion });
     });
   }
 
@@ -66,14 +76,12 @@ export class CiudadDetalleComponent implements OnInit {
 
   registrarCiudad(ciudadDto: CiudadDto): void {
     this.ciudadService.createCiudad(ciudadDto).subscribe((data) => {
-      console.log(data);
       this.router.navigate(['dashboard/ciudades']);
     });
   }
 
   actualizarCiudad(ciudadDto: CiudadDto): void {
     this.ciudadService.updateCiudad(ciudadDto).subscribe((data) => {
-      console.log(data);
       this.router.navigate(['dashboard/ciudades']);
     });
   }

@@ -1,0 +1,43 @@
+<div class="container">
+    <mat-card class="card">
+      <mat-card-title>
+        <h2>Gestión de Jurisdicciones</h2>
+      </mat-card-title>
+      <mat-card-content>
+        <button mat-raised-button class="custom-button" (click)="onNavigateCreateUsuario()">
+          <mat-icon>add</mat-icon> Nueva Jurisdicción
+        </button>
+        <table mat-table [dataSource]="usuarios" class="mat-elevation-z8 custom-table">
+          <ng-container matColumnDef="idusuario">
+            <th mat-header-cell *matHeaderCellDef> Id Usuario </th>
+            <td mat-cell *matCellDef="let element"> {{element.idusuario}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="nomusuario">
+            <th mat-header-cell *matHeaderCellDef> Nombre Usuario </th>
+            <td mat-cell *matCellDef="let element"> {{element.nomusuario}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="nombres">
+            <th mat-header-cell *matHeaderCellDef> Nombres </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="apellidos">
+            <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+            <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Correo </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+              class="custom-row"
+              (click)="onNavigateUsuarioDetail(row.idusuario)"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>

@@ -13,9 +13,9 @@ export class VueloService {
   private apiUrl = 'http://localhost:8080/api/v1/vuelos';
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
-  getAllVuelos(): Observable<Vuelo[]>{
+  getAllVuelos(): Observable<VueloDto[]>{
     const headers = this.authService.cabeceraMensaje();
-    return this.httpClient.get<Vuelo[]>(this.apiUrl, { headers });
+    return this.httpClient.get<VueloDto[]>(this.apiUrl, { headers });
   }
   
   getVueloById(id: number): Observable<Vuelo>{

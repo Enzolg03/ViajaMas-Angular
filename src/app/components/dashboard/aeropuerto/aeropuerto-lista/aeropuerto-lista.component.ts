@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../../angular-material/material/material.module';
-import { Aeropuerto } from '../aeropuerto.model';
 import { AeropuertoService } from '../aeropuerto.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AeropuertoDto } from '../aeropuertoDto.model';
 
 @Component({
   selector: 'app-aeropuerto-lista',
@@ -12,8 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './aeropuerto-lista.component.css'
 })
 export class AeropuertoListaComponent {
-  displayedColumns: string[] = ['idaeropuerto', 'nombre', 'ciudad', 'jurisdiccion', 'pais'];
-  aeropuertos: Aeropuerto[] = [];
+  displayedColumns: string[] = ['idaeropuerto', 'nomaeropuerto', 'nomciudad', 'nomjurisdiccion', 'nompais'];
+  aeropuertos: AeropuertoDto[] = [];
 
   constructor(private aeropuertoService: AeropuertoService,
     private route: ActivatedRoute,

@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './pais-lista.component.css'
 })
 export class PaisListaComponent {
-  displayedColumns: string[] = ['idpais', 'descripcion'];
+  displayedColumns: string[] = ['idpais', 'nompais'];
   paises: Pais[] = [];
 
   constructor(private paisService: PaisService,

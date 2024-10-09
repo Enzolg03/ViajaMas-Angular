@@ -5,7 +5,7 @@ import { Pais } from "../pais/pais.model";
 
 export interface Aeropuerto{
     idaeropuerto : number;
-    nombre : string;
+    nomaeropuerto : string;
     ciudad : Ciudad;
     jurisdiccion : Jurisdiccion;
     pais : Pais;

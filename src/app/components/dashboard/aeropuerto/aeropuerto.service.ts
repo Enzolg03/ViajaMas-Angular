@@ -14,15 +14,14 @@ export class AeropuertoService {
 
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
-  getAllAeropuertos(): Observable<Aeropuerto[]>{
+  getAllAeropuertos(): Observable<AeropuertoDto[]>{
     const headers = this.authService.cabeceraMensaje();
-    return this.httpClient.get<Aeropuerto[]>(this.apiUrl, { headers });
+    return this.httpClient.get<AeropuertoDto[]>(this.apiUrl, { headers });
   }
   getAeropuertoById(id: number): Observable<Aeropuerto>{
     const headers = this.authService.cabeceraMensaje();
     return this.httpClient.get<Aeropuerto>(`${this.apiUrl}/${id}`, { headers })
   }
-
   createAeropuerto(aeropuertoDto: AeropuertoDto): Observable<Aeropuerto> {
     const headers = this.authService.cabeceraMensaje();
     return this.httpClient.post<Aeropuerto>(this.apiUrl, aeropuertoDto, { headers });

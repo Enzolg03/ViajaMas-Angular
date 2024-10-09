@@ -1,7 +1,7 @@
 
 export interface AerolineaDto {
     idaerolinea: number;
-    nombre: string;
+    nomaerolinea: string;
     idpais: number;
-    descripcion: string;
+    nompais: string;
   }

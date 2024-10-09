@@ -14,11 +14,19 @@
             <input type="hidden" name="idciudad" formControlName="idciudad">
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Descripción</mat-label>
-                <input matInput name="descripcion" formControlName="descripcion" />
+                <input matInput name="nomciudad" formControlName="nomciudad" />
             </mat-form-field>
-            <mat-form-field appearance="outline" class="full-width">
+            <!-- <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Jurisdicción</mat-label>
                 <input matInput name="idjurisdiccion" formControlName="idjurisdiccion" />
+            </mat-form-field> -->
+            <mat-form-field>
+                <mat-label>Jurisdicción</mat-label>
+                <mat-select formControlName="idjurisdiccion">
+                @for (jurisdiccion of jurisdicciones; track jurisdiccion) {
+                <mat-option [value]="jurisdiccion.idjurisdiccion" >{{jurisdiccion.nomjurisdiccion}}</mat-option>
+                }
+                </mat-select>
             </mat-form-field>
         </form>
     </div>

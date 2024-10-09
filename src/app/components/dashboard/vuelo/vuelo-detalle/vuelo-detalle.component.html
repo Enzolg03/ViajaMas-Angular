@@ -17,28 +17,46 @@
                 <input matInput name="numerovuelo" formControlName="numerovuelo" />
             </mat-form-field>
             <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Aerolínea</mat-label>
-                <input matInput name="aerolinea" formControlName="aerolinea" />
+                <mat-label>Aerolinea</mat-label>
+                <mat-select formControlName="idaerolinea">
+                @for (aerolinea of aerolineas; track aerolinea) {
+                <mat-option [value]="aerolinea.idaerolinea" >{{aerolinea.nomaerolinea}}</mat-option>
+                }
+                </mat-select>
             </mat-form-field>
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Avión</mat-label>
-                <input matInput name="avion" formControlName="avion" />
+                <mat-select formControlName="idavion">
+                @for (avion of aviones; track avion) {
+                <mat-option [value]="avion.idavion" >{{avion.modelo}}</mat-option>
+                }
+                </mat-select>
             </mat-form-field>
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Origen</mat-label>
-                <input matInput name="aeropuerto_origen" formControlName="aeropuerto_origen" />
+                <mat-select formControlName="id_aeropuerto_origen">
+                @for (aeropuerto_origen of aeropuertos; track aeropuerto_origen) {
+                <mat-option [value]="aeropuerto_origen.idaeropuerto" >{{aeropuerto_origen.nomaeropuerto}}</mat-option>
+                }
+                </mat-select>
             </mat-form-field>
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Destino</mat-label>
-                <input matInput name="aeropuerto_destino" formControlName="aeropuerto_destino" />
+                <mat-select formControlName="id_aeropuerto_destino">
+                @for (aeropuerto_destino of aeropuertos; track aeropuerto_destino) {
+                <mat-option [value]="aeropuerto_destino.idaeropuerto" >{{aeropuerto_destino.nomaeropuerto}}</mat-option>
+                }
+                </mat-select>
             </mat-form-field>
+
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Fecha de salida</mat-label>
-                <input matInput name="fechasalida" formControlName="fechasalida" />
+                <input matInput name="fechasalida" formControlName="fechasalida" type="datetime-local"/>
             </mat-form-field>
+
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Fecha de llegada</mat-label>
-                <input matInput name="fechallegada" formControlName="fechallegada" />
+                <input matInput name="fechallegada" formControlName="fechallegada" type="datetime-local"/>
             </mat-form-field>
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Duración</mat-label>

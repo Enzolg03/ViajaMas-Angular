@@ -18,6 +18,8 @@ import { AeropuertoListaComponent } from './components/dashboard/aeropuerto/aero
 import { AeropuertoDetalleComponent } from './components/dashboard/aeropuerto/aeropuerto-detalle/aeropuerto-detalle.component';
 import { VueloListaComponent } from './components/dashboard/vuelo/vuelo-lista/vuelo-lista.component';
 import { VueloDetalleComponent } from './components/dashboard/vuelo/vuelo-detalle/vuelo-detalle.component';
+import { UsuarioListaComponent } from './components/dashboard/usuarios/usuario-lista/usuario-lista.component';
+import { UsuarioDetalleComponent } from './components/dashboard/usuarios/usuario-detalle/usuario-detalle.component';
 
 export const routes: Routes = [
     {path: "login", component: LoginComponent},
@@ -37,7 +39,9 @@ export const routes: Routes = [
             { path: "aeropuertos/:id", component: AeropuertoDetalleComponent},
             { path: "vuelos", component: VueloListaComponent},
             { path: "vuelos/:id", component: VueloDetalleComponent},
+            { path: "usuarios", component: UsuarioListaComponent},
+            { path: "usuarios/:idusuario", component: UsuarioDetalleComponent},
         ]
-    },  
+    },
     { path: "", redirectTo: "login", pathMatch: "full"}
 ];

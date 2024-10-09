@@ -51,15 +51,15 @@ export class JurisdiccionDetalleComponent implements OnInit {
   formulario(): FormGroup {
     return new FormGroup({
       idjurisdiccion: new FormControl(''),
-      descripcion: new FormControl(''),
+      nomjurisdiccion: new FormControl(''),
       idpais: new FormControl('')
     });
   }
 
   cargarJurisdiccion(jurisdiccionid: number): void {
     this.jurisdiccionService.getJurisdiccionById(jurisdiccionid).subscribe((data) => {
-      const { idjurisdiccion, descripcion, pais } = data;
-      this.jurisdiccionForm.setValue({ idjurisdiccion, descripcion, idpais: pais.idpais });
+      const { idjurisdiccion, nomjurisdiccion, pais } = data;
+      this.jurisdiccionForm.setValue({ idjurisdiccion, nomjurisdiccion, idpais: pais.idpais });
     });
   }
 

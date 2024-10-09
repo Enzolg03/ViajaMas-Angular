@@ -44,15 +44,15 @@ export class PaisDetalleComponent {
   formulario(): FormGroup{
     return new FormGroup({
       idpais: new FormControl(''),
-      descripcion: new FormControl('')
+      nompais: new FormControl('')
     })
   }
   cargarPais(paisid: number): void{
     this.paisService.getPaisById(paisid)
     .subscribe(
       (data)=>{
-        const {idpais, descripcion} = data
-        this.paisForm.setValue({idpais,descripcion})
+        const {idpais, nompais} = data
+        this.paisForm.setValue({idpais,nompais})
       })
   }
   guardarPais():void{

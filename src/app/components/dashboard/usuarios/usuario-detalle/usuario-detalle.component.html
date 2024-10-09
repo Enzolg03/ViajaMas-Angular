@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>{{ usuarioId }}</h1>
+  <div class="module-header">
+      <div class="left">
+          <h3>{{ formTitulo }}</h3>
+      </div>
+      <div class="right">
+          <button mat-raised-button class="custom-button" color="primary" (click)="guardarUsuario()">Guardar</button>
+      </div>
+      </div>    
+      <hr/>
+      <div class="form-container">
+          <form class="form" [formGroup]="usuarioForm">
+              <input type="hidden" name="idusuario" formControlName="idusuario">
+              <mat-form-field appearance="outline" class="full-width">
+                  <mat-label>Nombre Usuario</mat-label>
+                  <input matInput name="nomusuario" formControlName="nomusuario" />
+              </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Nombres</mat-label>
+              <input matInput name="nombres" formControlName="nombres" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Apellidos</mat-label>
+            <input matInput name="apellidos" formControlName="apellidos" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Correo</mat-label>
+          <input matInput name="email" formControlName="email" />
+      </mat-form-field>
+          </form>
+      </div>
+  </div>
